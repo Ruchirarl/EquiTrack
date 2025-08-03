@@ -31,7 +31,8 @@ This diagram visually represents the complete workflow of the EquiTrack platform
 
 ## Financial Glossary
 For a complete guide to all the financial metrics and stock tickers used in this project, please see the detailed glossary file included in the repository:
-[Download the Financial Glossary](EquiTrack/EquiTrack Glossary.xlsx)
+
+**[Download the Financial Glossary](EquiTrack%20Glossary.xlsx)**
 
 ## Project Structure
 The project is organized into two main sections: the root directory for Python scripts and the financial_models directory for the dbt project.
