@@ -1,0 +1,31 @@
+# This file contains the primary configuration for your dbt project.
+
+name: 'financial_models'
+version: '1.0.0'
+profile: 'financial_models'
+
+# These configurations specify where dbt should look for different types of files.
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+# These directories will be removed when you run `dbt clean`
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# This is where we configure how our models are built ("materialized").
+models:
+  financial_models:
+    # We configure all models in our 'staging' directory to be built as views.
+    # Views are like saved queries; they are fast to build and don't store extra data.
+    staging:
+      +materialized: view
+    
+    # We configure all models in our 'marts' directory to be built as tables.
+    # Tables are slower to build but are much faster for BI tools like Tableau to query.
+    marts:
+      +materialized: table

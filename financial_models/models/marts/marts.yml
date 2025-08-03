@@ -1,0 +1,66 @@
+# This file contains the documentation and data quality tests for all models in the 'marts' directory.
+# It serves as the central rulebook for our final, user-facing analytical tables.
+
+version: 2
+
+models:
+  - name: fct_market_performance
+    description: "Core model with daily stock prices, returns, technical indicators, and economic data."
+    tests:
+      # This test correctly checks if the combination of date and ticker is unique.
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - price_date
+            - ticker
+    columns:
+      - name: daily_return
+        description: "The daily percentage change in a stock's closing price."
+        tests:
+          # Using the dbt_utils prefix to call the package test
+          - dbt_utils.accepted_range:
+              min_value: -0.5
+              max_value: 0.5
+
+  - name: dim_risk_summary
+    description: "A summary table calculating key risk and return metrics for each stock."
+    columns:
+      - name: ticker
+        tests:
+          - unique
+          - not_null
+      - name: sharpe_ratio
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: -5
+              max_value: 5
+
+  - name: fct_sector_daily
+    description: "A daily model showing the performance and rank of each market sector."
+    columns:
+      - name: daily_return_rank
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 1
+              max_value: 3 # Since we have 3 sectors
+
+  - name: dim_sector_correlations
+    description: "A summary table showing the correlation between pairs of market sectors."
+    columns:
+      - name: correlation
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: -1
+              max_value: 1
+
+  - name: dim_economic_sensitivity
+    description: "A summary table showing each stock's sensitivity to economic indicators."
+    columns:
+      - name: ticker
+        tests:
+          - unique
+          - not_null
+      - name: correlation_to_treasury
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: -1
+              max_value: 1

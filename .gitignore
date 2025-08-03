@@ -1,0 +1,25 @@
+# Python virtual environment
+venv/
+__pycache__/
+*.pyc
+
+# dbt generated folders
+financial_models/dbt_packages/
+financial_models/logs/
+financial_models/target/
+
+# DuckDB database files
+financial_models/*.duckdb
+financial_models/dev.duckdb
+
+# Trained ML Models (Artifacts, not source code)
+trained_models/
+
+# IDE and OS specific files
+.vscode/
+.idea/
+.DS_Store
+
+# Tableau files (optional, but good practice)
+*.twb
+*.twbx
