@@ -34,9 +34,38 @@ For a complete guide to all the financial metrics and stock tickers used in this
 
 ## Project Structure
 The project is organized into two main sections: the root directory for Python scripts and the financial_models directory for the dbt project.
-
-
-    
+```
+├── financial_models/
+│   ├── macros/
+│   │   └── financial_metrics.sql
+│   ├── models/
+│   │   ├── marts/
+│   │   │   ├── dim_economic_sensitivity.sql
+│   │   │   ├── dim_risk_summary.sql
+│   │   │   ├── dim_sector_correlations.sql
+│   │   │   ├── fct_market_performance.sql
+│   │   │   ├── fct_sector_daily.sql
+│   │   │   └── marts.yml
+│   │   └── staging/
+│   │       ├── stg_economic_data.sql
+│   │       └── stg_stock_prices.sql
+│   ├── seeds/
+│   │   ├── economic_data.csv
+│   │   └── stock_prices.csv
+│   ├── tests/
+│   ├── dbt_project.yml
+│   └── packages.yml
+├── trained_models/
+│   └── (Saved .pkl models appear here)
+├── .gitignore
+├── get_economic_data.py
+├── get_stock_data.py
+├── pipeline.py
+├── predictive_model.py
+├── README.md
+└── requirements.txt
+```
+--- 
 ## How to Run This Project
 **1. Clone the repository:**
 ```
@@ -88,4 +117,4 @@ The dashboard is composed of several key analytical charts, each designed to ans
 | Monthly Sector Outperformance vs. Market  | A diverging bar chart that shows which sectors beat (positive) or lagged (negative) the market each month.  |
 | 30-Day Volatility Timeline  | An area chart that shows how the overall riskiness of the selected portfolio has changed over time.  |
 
-
+---
