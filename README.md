@@ -31,6 +31,7 @@ This diagram visually represents the complete workflow of the EquiTrack platform
 
 ## Financial Glossary
 For a complete guide to all the financial metrics and stock tickers used in this project, please see the detailed glossary file included in the repository:
+[Download the Financial Glossary](EquiTrack/EquiTrack Glossary.xlsx)
 
 ## Project Structure
 The project is organized into two main sections: the root directory for Python scripts and the financial_models directory for the dbt project.
@@ -98,7 +99,7 @@ python predictive_model.py
 **6. Connect Tableau or any other tool to the financial_models/dev.duckdb file to create the final dashboard.**
 
 ## Tableau Dashboard
-### [Link to Live Dashboard on Tableau Public](https://public.tableau.com/views/EquiTrack-StrategicPortfolioAnalyzer/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+### [Explore the Interactive Dashboard on Tableau Public](https://public.tableau.com/views/EquiTrack-StrategicPortfolioAnalyzer/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 <p align="center">
 <img width="1598" height="894" alt="image" src="https://github.com/user-attachments/assets/dde439ee-867d-4a66-b36b-7880ff420ff8" />
 </p>
